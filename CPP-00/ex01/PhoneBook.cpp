@@ -6,36 +6,41 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:12:12 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/01/24 16:28:37 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:06:37 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 void Phonebook::AddContact() {
-    std::string input;
+    std::string fName, lName, nName, pNumber, dSecret;
 
     GetContact(index).SetIndex(index);
 
     std::cout << "\033[38;5;218mEnter first name >> \033[0m";
-    std::getline(std::cin >> std::ws, input);
-    contact[index].SetFirstName(input);
+    std::getline(std::cin >> std::ws, fName);
+    if (fName.empty()) Exit();
+    contact[index].SetFirstName(fName);
 
     std::cout << "\033[38;5;218mEnter last name >> \033[0m";
-    std::getline(std::cin >> std::ws, input);
-    contact[index].SetLastName(input);
+    std::getline(std::cin >> std::ws, lName);
+    if (lName.empty()) Exit();
+    contact[index].SetLastName(lName);
 
     std::cout << "\033[38;5;218mEnter nickname >> \033[0m";
-    std::getline(std::cin >> std::ws, input);
-    contact[index].SetNickname(input);
+    std::getline(std::cin >> std::ws, nName);
+    if (nName.empty()) Exit();
+    contact[index].SetNickname(nName);
 
     std::cout << "\033[38;5;218mEnter phone number >> \033[0m";
-    std::getline(std::cin >> std::ws, input);
-    contact[index].SetPhoneNumber(input);
+    std::getline(std::cin >> std::ws, pNumber);
+    if (pNumber.empty()) Exit();
+    contact[index].SetPhoneNumber(pNumber);
 
     std::cout << "\033[38;5;218mEnter darkest secret >> \033[0m";
-    std::getline(std::cin >> std::ws, input);
-    contact[index].SetDarkestSecret(input);
+    std::getline(std::cin >> std::ws, dSecret);
+    if (dSecret.empty()) Exit();
+    contact[index].SetDarkestSecret(dSecret);
 
     std::cout << std::endl
               << "\033[38;5;151m" << GetContact(index).GetFirstName() << " added to the phonebook \033[38;5;218m[" << index + 1 << "/8]\033[0m\n\n";
@@ -70,6 +75,11 @@ void Phonebook::PrintBook(){
 
     std::cout << std::endl << "\033[38;5;218mPlease, enter the desired index: \033[0m";
     std::getline(std::cin >> std::ws, input);
+    if (input.empty())
+    {
+        std::cout << std::endl; 
+        Exit();
+    }
     std::stringstream ss(input);
     ss >> number;
     ProcessRequest(number);
@@ -110,4 +120,10 @@ void Phonebook::SetNumberOfContacts(int n) {
 
 void Phonebook::IncrementIndex(int newIndex) {
    (index > 7) ? index = 0 : index = newIndex;
+}
+
+void Phonebook::Exit()
+{
+    std::cout << "\033[38;5;218m\nThanks for using Phonebook! Till next time!\n\033[0m";
+	exit (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:12:12 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/01/24 16:34:18 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:00:11 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 	std::string command;
 	
 	DisplayTitle();
-	std::cout << "\033[38;5;151mWelcome! Type a command or enter \033[38;5;218mHELP\033[0m!\n\n";
+	std::cout << "\033[38;5;151mWelcome! Type a command: \033[38;5;218mADD\033[38;5;151m, \033[38;5;218mSEARCH \033[38;5;151mor \033[38;5;218mEXIT\033[38;5;151m!\033[0m\n\n";
 
 	phonebook.IncrementIndex(0);
 	phonebook.SetNumberOfContacts(0);
@@ -40,23 +40,21 @@ int	main()
 		if (!std::getline(std::cin, command))
 		{
             std::cout << std::endl;
-			break;
+			phonebook.Exit();
 		}
 
-        if (command.empty()) continue;
+        if (command.empty())  phonebook.Exit();;
         
         for (int i = 0; command[i]; i++)
             command[i] = (unsigned char)std::toupper(command[i]);
 
         if (command == "EXIT")
-            break;
-
+            phonebook.Exit();
+			
         if (command == "ADD")
             phonebook.AddContact();
+			
         if (command == "SEARCH")
             phonebook.PrintBook();
     }
-	
-	std::cout << "\033[38;5;218m\nThanks for using Phonebook! Till next time!\n\033[0m";
-	return (0);
 }

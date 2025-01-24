@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:12:12 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/01/24 16:22:22 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/01/24 16:56:51 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <cstdlib>
 #include "Contact.hpp"
 
 class Phonebook {
@@ -24,6 +25,7 @@ public:
 	void		PrintBook();
 	void		ProcessRequest(int index);
 	void		IncrementIndex(int index);
+	void		Exit();
 
 	std::string	Normalize(const std::string& str);
 	
