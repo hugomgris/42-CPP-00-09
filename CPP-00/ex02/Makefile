@@ -9,7 +9,7 @@ RED         = \033[0;91m
 
 # -=-=-=-=-    NAME -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
 
-NAME        := phonebook
+NAME        := account
 
 # -=-=-=-=-    FLAG -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
 
@@ -22,9 +22,8 @@ RM          = rm -fr
 
 # -=-=-=-=-    FILES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
-SRC         := main.cpp	\
-				PhoneBook.cpp	\
-				Contact.cpp
+SRC         := tests.cpp \
+				Account.cpp
 
 OBJS		= $(SRC:.cpp=.o)
 
@@ -40,7 +39,7 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN)Linking $(NAME)!$(DEF_COLOR)"
 	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled!$(DEF_COLOR)"
-	@echo "$(RED)Got your number, got your soul.$(DEF_COLOR)"
+	@echo "$(RED)Reverse ingeniering my way into your heart.$(DEF_COLOR)"
 
 
 clean:
