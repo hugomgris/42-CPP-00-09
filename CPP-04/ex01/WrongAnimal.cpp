@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:45:35 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/17 17:45:37 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:47:23 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 WrongAnimal::WrongAnimal(): _type("RandomWrongAnimal"){
 	std::cout << "Default constructor called for WrongAnimal" << std::endl;
-};
+}
 
 WrongAnimal::WrongAnimal(const std::string &type): _type(type){
 	std::cout << "Constructor called for WrongAnimal with type " << _type << std::endl;
-};
+}
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other){
 	std::cout << "Copy constructor called for WrongAnimal with type " << other.getType() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:01:08 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/18 19:02:03 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:49:58 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 Character::Character(): _name("ShinraGrunt"), _nFloor(0), _floor(NULL){
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
-};
+}
 
 Character::Character(const std::string &name): _name(name), _nFloor(0), _floor(NULL){
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
-};
+}
 
 Character::Character(const Character &other){
 	for (int i = 0; i < 4; ++i)
@@ -109,4 +109,3 @@ void Character::use(int idx, ICharacter &target){
 	else
 		std::cout << "No materia equiped in slot " << idx << std::endl;
 }
-

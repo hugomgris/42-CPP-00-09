@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:16:56 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/18 09:49:31 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:48:57 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat(): AAnimal("cat"){
 	std::cout << "Default constructor called for Cat" << std::endl;
 	Brain *brain = new Brain();
 	this->_brain = brain;
-};
+}
 
 Cat::Cat(const Cat &other) : AAnimal(other) {
 	std::cout << "Copy constructor called for Cat" << std::endl;

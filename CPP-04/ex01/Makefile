@@ -6,7 +6,7 @@
 #    By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 13:48:05 by hmunoz-g          #+#    #+#              #
-#    Updated: 2025/02/18 09:04:29 by hmunoz-g         ###   ########.fr        #
+#    Updated: 2025/02/27 10:05:02 by hmunoz-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,14 @@ NAME        := brain
 # -=-=-=-=-    FLAG -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
 
 CPP          = c++
-FLAGS       = -Werror -Wall -Wextra -std=c++98 -fsanitize=address
+FLAGS       = -Werror -Wall -Wextra -std=c++98 -pedantic -g -fsanitize=address
+DEPFLAGS    = -MMD -MP
 
 # -=-=-=-=-    PATH -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
 RM          = rm -fr
+OBJ_DIR     = .obj
+DEP_DIR     = .dep
 
 # -=-=-=-=-    FILES -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
@@ -42,26 +45,32 @@ SRC         := main.cpp	\
 				WrongCat.cpp \
 				Brain.cpp
 
-OBJS		= $(SRC:.cpp=.o)
+OBJS        = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+DEPS        = $(addprefix $(DEP_DIR)/, $(SRC:.cpp=.d))
 
 # -=-=-=-=-    TARGETS -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
 
-all: $(NAME)
+all: directories $(NAME)
 
-%.o: %.cpp %.hpp Makefile
-	$(CPP) $(FLAGS) -c $< -o $@
+directories:
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(DEP_DIR)
+
+-include $(DEPS)
+
+$(OBJ_DIR)/%.o: %.cpp 
 	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
+	$(CPP) $(FLAGS) $(DEPFLAGS) -c $< -o $@ -MF $(DEP_DIR)/$*.d
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	@echo "$(GREEN)Linking $(NAME)!$(DEF_COLOR)"
 	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled!$(DEF_COLOR)"
 	@echo "$(RED)The computer says bip-bop-bup$(DEF_COLOR)"
 
-
 clean:
-	@$(RM) $(OBJS) 
-	@echo "$(RED)Cleaned object files$(DEF_COLOR)"
+	@$(RM) $(OBJ_DIR) $(DEP_DIR)
+	@echo "$(RED)Cleaned object files and dependencies$(DEF_COLOR)"
 
 fclean: clean
 	@$(RM) $(NAME)
@@ -69,5 +78,4 @@ fclean: clean
 
 re: fclean all
 
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re directories

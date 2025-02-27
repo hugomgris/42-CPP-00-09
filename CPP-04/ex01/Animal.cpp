@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:49:50 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/17 17:21:18 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:46:34 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Animal::Animal(): _type("RandomAnimal"){
 	std::cout << "Default constructor called for Animal" << std::endl;
-};
+}
 
 Animal::Animal(const std::string &type): _type(type){
 	std::cout << "Constructor called for Animal with type " << _type << std::endl;
-};
+}
 
 Animal::Animal(const Animal &other){
 	std::cout << "Copy constructor called for Animal with type " << other.getType() << std::endl;

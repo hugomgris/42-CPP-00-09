@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:57:04 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/18 09:46:58 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:46:56 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog(): Animal("dog"){
 	std::cout << "Default constructor called for Dog" << std::endl;	
 	Brain *brain = new Brain();
 	this->_brain = brain;
-};
+}
 
 Dog::Dog(const Dog &other) : Animal(other) {
 	std::cout << "Copy constructor called for Dog" << std::endl;

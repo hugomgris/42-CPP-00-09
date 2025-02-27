@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 14:57:04 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/17 17:13:40 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:01:32 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 Dog::Dog(): Animal("dog"){
 	std::cout << "Default constructor called for Dog" << std::endl;	
-};
+}
 
-Dog::Dog(const Dog &other){
+Dog::Dog(const Dog &other): Animal("dog"){
 	*this = other;
-};
+}
 
 Dog::~Dog(){
 	std::cout << "Default destructor called for Dog" << std::endl;	

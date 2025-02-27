@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:44:47 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/17 17:44:57 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:00:36 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class WrongAnimal{
 		WrongAnimal &operator=(const WrongAnimal &other);
 
 		//Getters & Setters
-		std::string getType() const;
+		const std::string &getType() const;
 		void setType(const std::string &type);
 
 		//Functions

@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:19:20 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/18 14:09:31 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:50:10 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ AMateria::AMateria(const AMateria &other){
 	*this = other;
 }
 
-AMateria::~AMateria(){};
+AMateria::~AMateria(){}
 
 //Operator overloads
 AMateria &AMateria::operator=(const AMateria &other){

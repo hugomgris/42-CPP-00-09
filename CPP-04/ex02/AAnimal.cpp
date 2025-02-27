@@ -14,11 +14,11 @@
 
 AAnimal::AAnimal(): _type("RandomAAnimal"){
 	std::cout << "Default constructor called for AAnimal" << std::endl;
-};
+}
 
 AAnimal::AAnimal(const std::string &type): _type(type){
 	std::cout << "Constructor called for AAnimal with type " << _type << std::endl;
-};
+}
 
 AAnimal::AAnimal(const AAnimal &other){
 	std::cout << "Copy constructor called for AAnimal with type " << other.getType() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 08:46:27 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/18 09:48:15 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:09:11 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ int main()
 		std::cout << "This should be a cat and mew: ";
 		animals[5]->makeSound();
 		std::cout << std::endl;
+		static_cast<Dog*>(animals[0])->getBrain()->setIdea("holiwi", -1);
+		static_cast<Dog*>(animals[0])->getBrain()->setIdea("holiwi", 100);
+		static_cast<Dog*>(animals[0])->getBrain()->setIdea("holiwi", 0);
 		std::cout << "Accessing their ideas should print their content:" << std::endl
 			<< "Dog: " << static_cast<Dog*>(animals[0])->getBrain()->getIdea(0) << std::endl
     		<< "Cat: " << static_cast<Cat*>(animals[5])->getBrain()->getIdea(0) << std::endl;

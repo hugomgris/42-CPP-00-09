@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:46:39 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/17 17:50:15 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/27 10:01:57 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 WrongCat::WrongCat(): WrongAnimal("WrongCat"){
 	std::cout << "Default constructor called for WrongCat" << std::endl;	
-};
+}
 
-WrongCat::WrongCat(const WrongCat &other){
+WrongCat::WrongCat(const WrongCat &other): WrongAnimal("WrongCat"){
 	*this = other;
-};
+}
 
 WrongCat::~WrongCat(){
 	std::cout << "Default destructor called for WrongCat" << std::endl;	

@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:07:36 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/18 09:05:27 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:46:51 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Brain{
 		//Getters and Setters
 		std::string getIdea(int i) const;
 
-		void setIdea(std::string idea, int i);
+		void setIdea(const std::string idea, int i);
 };
 
 #endif
