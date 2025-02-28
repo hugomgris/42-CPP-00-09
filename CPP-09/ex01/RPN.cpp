@@ -44,6 +44,7 @@ void RPN::splitIntoStack(const std::string &input, const char delimiter){
 		this->_raw.push(token);
 }
 
+//Not required by the subject, but it's Friday afternoon and what better thing to do than parse numbers?
 void RPN::parseNumbers(std::stack<std::string> tmp){
 	const char operators[] = {'+', '-', '*', '/'};
 
@@ -110,7 +111,6 @@ void RPN::calculate(std::stack<std::string> tmp){
 }
 
 int RPN::operate(int &n1, int &n2, char &op){
-	std::cout << "Attempting to operate: " << n1 << op << n2 << std::endl;
 	if (op == '+')
 		return (n1 + n2);
 	if (op == '-')
