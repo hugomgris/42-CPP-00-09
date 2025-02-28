@@ -46,7 +46,6 @@ void RPN::splitIntoStack(const std::string &input, const char delimiter){
 
 void RPN::parseNumbers(std::stack<std::string> tmp){
 	const char operators[] = {'+', '-', '*', '/'};
-	int flag = 0;
 
 	std::stack<std::string> copy;
 
@@ -55,15 +54,17 @@ void RPN::parseNumbers(std::stack<std::string> tmp){
 		tmp.pop();
 	}
 
+	//Only God can judge me
+	std::stack<std::string> copy2 = copy;
+	std::string nCheck1 = copy2.top();
+	copy2.pop();
+	std::string nCheck2 = copy2.top();
+	if (!std::isdigit(nCheck1[nCheck1.size() - 1]) || !std::isdigit(nCheck2[nCheck1.size() - 1]))
+			throw (BadExpressionException());
+
 	while (!copy.empty()){
 		std::string top = copy.top();
 		copy.pop();
-
-		while (flag < 2){
-			if (!std::isdigit(top[top.length() - 1]))
-				throw(BadExpressionException());
-			flag++;
-		}
 
 		for (size_t i = 0; i < top.length(); i++){
 			if (!std::isdigit(top[i])){
