@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 13:05:50 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/27 17:21:50 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/03/05 09:24:51 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void BitcoinExchange::printData(const std::string &key, const float &value){
 		return ;
 	}
 
-	if (value > 100){
+	if (value > 1000){
 		std::cout << "Error: too large a number." << std::endl;
 		return ;
 	}

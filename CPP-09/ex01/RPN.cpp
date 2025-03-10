@@ -6,7 +6,7 @@
 /*   By: hmunoz-g <hmunoz-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 09:19:58 by hmunoz-g          #+#    #+#             */
-/*   Updated: 2025/02/28 14:56:44 by hmunoz-g         ###   ########.fr       */
+/*   Updated: 2025/03/05 09:28:21 by hmunoz-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void RPN::splitIntoStack(const std::string &input, const char delimiter){
 
 //Not required by the subject, but it's Friday afternoon and what better thing to do than parse numbers?
 void RPN::parseNumbers(std::stack<std::string> tmp){
+	if (tmp.size() < 2)
+		throw (BadExpressionException());
+	
 	const char operators[] = {'+', '-', '*', '/'};
 
 	std::stack<std::string> copy;
@@ -60,19 +63,20 @@ void RPN::parseNumbers(std::stack<std::string> tmp){
 	std::string nCheck1 = copy2.top();
 	copy2.pop();
 	std::string nCheck2 = copy2.top();
-	if (!std::isdigit(nCheck1[nCheck1.size() - 1]) || !std::isdigit(nCheck2[nCheck1.size() - 1]))
+	if (!std::isdigit(nCheck1[nCheck1.size()] - 1) && !std::isdigit(nCheck2[nCheck2.size() - 1])){
 			throw (BadExpressionException());
+	}
 
 	while (!copy.empty()){
 		std::string top = copy.top();
 		copy.pop();
 
 		for (size_t i = 0; i < top.length(); i++){
-			if (!std::isdigit(top[i])){
+			if (!std::isdigit(top[top.length() - 1])){
 				if (std::isalpha(top[i]))
 					throw(BadExpressionException());
 				for (size_t j = 0; j < 4; j++){
-					if (top[i] == operators[j])
+					if (top[i] == operators[j] && top.size() == 1)
 						break ;
 					if (j == 3)
 						throw (BadOperatorException());
